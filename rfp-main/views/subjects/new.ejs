@@ -1,0 +1,16 @@
+<% layout("/layouts/boilerplate")-%>
+
+<body>
+  <h1>Add a Subject:</h1>
+  <form action="/subjects" method="POST">
+    <label for="">Subject Name</label>
+    <input type="text" name="subject[subname]" />
+    <br />
+    <label for="">Subject Code</label>
+    <input type="text" name="subject[subcode]" />
+    <br />
+    <label for="">Subject Type</label>
+    <input type="text" name="subject[subtype]" />
+    <button>Add Subject</button>
+  </form>
+</body>

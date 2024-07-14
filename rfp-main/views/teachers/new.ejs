@@ -1,0 +1,59 @@
+<% layout("/layouts/boilerplate")-%>
+
+  </head>
+  <body>
+    <form action="/teachers" method="POST">
+      <label for="">Faculty Name</label>
+      <input
+        type="text"
+        name="teacher[name]"
+        id=""
+        placeholder="enter teacher's name" />
+      <br /><br />
+      <% if(!currUserStatus.role=='teacher'){ %>
+      <label>Faculty ID:</label>
+      <input type="text" name="teacher[fid]" placeholder="enter fid" id="" />
+      <br /><br />
+      <% }%>
+      <label>Department:</label>
+      <select name="teacher[department]" id="">
+        <% for(let department of departments){ %>
+        <option value="<%= department._id %>">
+          <%= department.deptcode %>
+        </option>
+        <% } %>
+      </select>
+      <br /><br />
+      <label>Email:</label>
+      <input
+        type="text"
+        name="teacher[email]"
+        placeholder="enter email"
+        id="" />
+      <br /><br />
+      <label>Subject 1:</label>
+      <select name="teacher[sub1]" id="">
+        <% for (let subject of subjects){ %>
+        <option value="<%= subject._id %>"><%= subject.subcode %></option>
+        <% } %>
+      </select>
+      <br /><br />
+      <label>Subject 2:</label>
+      <select name="teacher[sub2]" id="">
+        <% for (let subject of subjects){ %>
+        <option value="<%= subject._id %>"><%= subject.subcode %></option>
+        <% } %>
+      </select>
+
+      <br /><br />
+      <label>Qualifications:</label>
+      <input
+        type="text"
+        name="teacher[qualifications]"
+        placeholder="enter qualifications"
+        id="" />
+      <br /><br />
+
+      <button>create</button>
+    </form>
+  </body>

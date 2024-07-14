@@ -1,0 +1,139 @@
+<% layout("/layouts/boilerplate")-%> <%= success %>
+<body>
+  <form
+    action="/teachers/<%= teacher._id %>/timetables/<%= timetable._id %>?_method=PUT"
+    method="POST">
+    <table>
+      <tr>
+        <th>timetable</th>
+        <th>1</th>
+        <th>2</th>
+        <th>3</th>
+        <th>4</th>
+        <th>5</th>
+        <th>6</th>
+        <th>7</th>
+      </tr>
+      <tr>
+        <td>
+          <p>Monday</p>
+        </td>
+        <% for(let i=0; i < 7; i++){ %>
+        <td>
+          <select name="timetable[Monday][<%= i %>]" id="Monday_<%= i %>">
+            <% let oldsub=timetable.Monday[i].subcode; %> <% for (let subject of
+            subjects) { %> <% if (subject.subcode===oldsub) { %>
+            <option value="<%= subject._id %>" selected>
+              <%= subject.subcode %>
+            </option>
+            <% } else { %>
+            <option value="<%= subject._id %>"><%= subject.subcode %></option>
+            <% } %> <% } %>
+          </select>
+        </td>
+        <% } %>
+      </tr>
+
+      <tr>
+        <td>
+          <p>Tuesday</p>
+        </td>
+        <% for(let i=0; i < 7; i++){ %>
+        <td>
+          <select name="timetable[Tuesday][<%= i %>]" id="Tuesday_<%= i %>">
+            <% let oldsub=timetable.Tuesday[i].subcode; %> <% for (let subject
+            of subjects) { %> <% if (subject.subcode===oldsub) { %>
+            <option value="<%= subject._id %>" selected>
+              <%= subject.subcode %>
+            </option>
+            <% } else { %>
+            <option value="<%= subject._id %>"><%= subject.subcode %></option>
+            <% } %> <% } %>
+          </select>
+        </td>
+        <% } %>
+      </tr>
+
+      <tr>
+        <td>
+          <p>Wednesday</p>
+        </td>
+        <% for(let i=0; i < 7; i++){ %>
+        <td>
+          <select name="timetable[Wednesday][<%= i %>]" id="Wednesday_<%= i %>">
+            <% let oldsub=timetable.Wednesday[i].subcode; %> <% for (let subject
+            of subjects) { %> <% if (subject.subcode===oldsub) { %>
+            <option value="<%= subject._id %>" selected>
+              <%= subject.subcode %>
+            </option>
+            <% } else { %>
+            <option value="<%= subject._id %>"><%= subject.subcode %></option>
+            <% } %> <% } %>
+          </select>
+        </td>
+        <% } %>
+      </tr>
+
+      <tr>
+        <td>
+          <p>Thursday</p>
+        </td>
+        <% for(let i=0; i < 7; i++){ %>
+        <td>
+          <select name="timetable[Thursday][<%= i %>]" id="Thursday_<%= i %>">
+            <% let oldsub=timetable.Thursday[i].subcode; %> <% for (let subject
+            of subjects) { %> <% if (subject.subcode===oldsub) { %>
+            <option value="<%= subject._id %>" selected>
+              <%= subject.subcode %>
+            </option>
+            <% } else { %>
+            <option value="<%= subject._id %>"><%= subject.subcode %></option>
+            <% } %> <% } %>
+          </select>
+        </td>
+        <% } %>
+      </tr>
+
+      <tr>
+        <td>
+          <p>Friday</p>
+        </td>
+        <% for(let i=0; i < 7; i++){ %>
+        <td>
+          <select name="timetable[Friday][<%= i %>]" id="Friday_<%= i %>">
+            <% let oldsub=timetable.Friday[i].subcode; %> <% for (let subject of
+            subjects) { %> <% if (subject.subcode===oldsub) { %>
+            <option value="<%= subject._id %>" selected>
+              <%= subject.subcode %>
+            </option>
+            <% } else { %>
+            <option value="<%= subject._id %>"><%= subject.subcode %></option>
+            <% } %> <% } %>
+          </select>
+        </td>
+        <% } %>
+      </tr>
+
+      <tr>
+        <td>
+          <p>Saturday</p>
+        </td>
+        <% for(let i=0; i < 7; i++){ %>
+        <td>
+          <select name="timetable[Saturday][<%= i %>]" id="Saturday_<%= i %>">
+            <% let oldsub=timetable.Saturday[i].subcode; %> <% for (let subject
+            of subjects) { %> <% if (subject.subcode===oldsub) { %>
+            <option value="<%= subject._id %>" selected>
+              <%= subject.subcode %>
+            </option>
+            <% } else { %>
+            <option value="<%= subject._id %>"><%= subject.subcode %></option>
+            <% } %> <% } %>
+          </select>
+        </td>
+        <% } %>
+      </tr>
+    </table>
+    <button>save</button>
+  </form>
+</body>

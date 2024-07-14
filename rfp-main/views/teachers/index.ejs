@@ -1,0 +1,17 @@
+<% layout("/layouts/boilerplate")-%>
+
+<body>
+  <h1>Teachers are:</h1>
+
+  <% for( teacher of teacherList){ %>
+  <a href="/teachers/<%= teacher._id %>"
+    >Teacher's Name: <%= teacher.name %>
+  </a>
+  <p>Faculty ID: <%= teacher.fid %></p>
+  <hr />
+  <% } %> <%if(currUserStatus == 'admin'){ %>
+  <form action="/teachers/new" method="get">
+    <button>add new teacher</button>
+  </form>
+  <% } %>
+</body>

@@ -1,0 +1,19 @@
+<% layout("/layouts/boilerplate")-%>
+
+<body>
+  <h1>Department Details</h1>
+  <p>Department Name: <%= department.deptname %></p>
+  <p>Department Code: <%= department.deptcode %></p>
+
+  <p>Teachers in the department:</p>
+  <hr />
+  <% for (let teacher of department.teachers) { %>
+  <div>
+    <a href="/teachers/<%= teacher._id %>">
+      <p><%= teacher.name %></p>
+      <p><%= teacher.fid %></p>
+      <hr />
+    </a>
+  </div>
+  <% } %>
+</body>

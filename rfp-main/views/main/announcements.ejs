@@ -1,0 +1,24 @@
+<% layout("/layouts/boilerplate")-%>
+
+<body>
+  <!-- to add a message/ announcements tab -->
+  <h1><%= dept.deptcode %> Announcements</h1>
+
+  <% if (announcements) {%>
+  <div>
+    <ul>
+      <% for (let j = 0; j < announcements.messages.length; j++) { %>
+      <li>
+        <strong><%= announcements.messages[j].displayname %>:</strong> <%=
+        announcements.messages[j].msg %>
+      </li>
+      <% } %>
+    </ul>
+  </div>
+  <% } %>
+  <hr />
+  <form action="/departments/<%= dept._id %>/announcements" method="post">
+    <textarea name="msg" id="msg"></textarea>
+    <button>submit</button>
+  </form>
+</body>

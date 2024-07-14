@@ -1,0 +1,53 @@
+<% layout("/layouts/boilerplate")-%>
+
+<body style="background-color: #182527">
+  <div class="container">
+    <div
+      class="row justify-content-center align-items-center"
+      style="height: 80vh"
+    >
+      <div class="col-6" style="background-color: #20cd8d; border-radius: 50px">
+        <div class="row mt-3">
+          <h1 class="col-6 offset-3 text-center">Login</h1>
+          <div class="col-6 offset-3">
+            <form action="/login" method="POST">
+              <div class="mb-3">
+                <label for="username" class="form-label">UID</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  name="username"
+                  placeholder="Enter your Faculty ID/Student ID"
+                  id="username"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input
+                  type="password"
+                  class="form-control"
+                  name="password"
+                  placeholder="Enter your password"
+                  id="password"
+                  required
+                />
+              </div>
+
+              <div class="col-12 d-flex justify-content-center">
+                <!-- Center the button -->
+                <button
+                  class="btn btn-success"
+                  style="margin-top: 20px; margin-bottom: 20px"
+                >
+                  Login
+                </button>
+                <!-- Add margin-top -->
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>

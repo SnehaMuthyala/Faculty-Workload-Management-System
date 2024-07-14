@@ -1,0 +1,105 @@
+<!-- <% layout("/layouts/boilerplate")-%>
+<body>
+  <form action="/findfaculty/id" method="post">
+    <input type="text" name="searchfid" placeholder="Enter faculty ID" />
+    <button type="submit">Search</button>
+  </form>
+  <h1>find idle faculty</h1>
+  <form action="/findfaculty" method="post">
+    <p>pick the date:</p>
+    <input type="datetime-local" name="dateinput" id="" />
+    <select name="period" id="">
+      <% for(let i = 1; i <= 7; i++){ %>
+      <option value="<%= i %>"><%= i %></option>
+      <% } %>
+    </select>
+    <br />
+    <select name="dept" id="">
+      <option value="all">All departments</option>
+      <% for(let dept of departments){ %>
+      <option value="<%= dept._id %>"><%= dept.deptname %></option>
+      <% } %>
+    </select>
+    <button type="submit">choose</button>
+  </form>
+
+  <p>Free teachers are:</p>
+  <% if(freeTeacherList && freeTeacherList.length > 0) { %> <%
+  freeTeacherList.forEach(teacher => { %>
+  <div>
+    <a href="/teachers/<%= teacher._id %>">
+      <p>Name: <%= teacher.name %></p>
+      <p>Faculty ID: <%= teacher.fid %></p>
+      <p>Theory classes: <%= teacher.theory %></p>
+      <p>Practical classes: <%= teacher.lab %></p>
+      <p>Total workload: <%= teacher.theory + teacher.lab %></p>
+      <hr />
+    </a>
+  </div>
+
+  <% }) %> <% } else { %>
+  <p>No free teachers</p>
+  <% } %>
+</body> -->
+<% layout("/layouts/boilerplate")-%>
+
+<body style="background-color: #182527; color: #ffffff">
+  <div class="container">
+    <form action="/findfaculty/id" method="post" class="mt-3">
+      <!-- Added class="mt-3" -->
+      <input type="text" name="searchfid" placeholder="Enter faculty ID" />
+      <button type="submit">Search</button>
+    </form>
+    <div>
+      <h1 class="text-center">Find Idle Faculty</h1>
+      <form action="/findfaculty" method="post">
+        <div class="mb-3">
+          <label for="dateinput" class="form-label">Pick the date:</label>
+          <input
+            type="datetime-local"
+            name="dateinput"
+            id="dateinput"
+            class="form-control"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="period" class="form-label">Select Period:</label>
+          <select name="period" id="period" class="form-control">
+            <% for(let i = 1; i <= 7; i++){ %>
+            <option value="<%= i %>"><%= i %></option>
+            <% } %>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label for="dept" class="form-label">Select Department:</label>
+          <select name="dept" id="dept" class="form-control">
+            <option value="all">All departments</option>
+            <% for(let dept of departments){ %>
+            <option value="<%= dept._id %>"><%= dept.deptname %></option>
+            <% } %>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-success">Choose</button>
+      </form>
+    </div>
+
+    <div class="mt-3">
+      <h2>Free teachers are:</h2>
+      <% if(freeTeacherList && freeTeacherList.length > 0) { %> <%
+      freeTeacherList.forEach(teacher => { %>
+      <div>
+        <a href="/teachers/<%= teacher._id %>">
+          <p>Name: <%= teacher.name %></p>
+          <p>Faculty ID: <%= teacher.fid %></p>
+          <p>Theory classes: <%= teacher.theory %></p>
+          <p>Practical classes: <%= teacher.lab %></p>
+          <p>Total workload: <%= teacher.theory + teacher.lab %></p>
+          <hr />
+        </a>
+      </div>
+      <% }) %> <% } else { %>
+      <p>No free teachers</p>
+      <% } %>
+    </div>
+  </div>
+</body>

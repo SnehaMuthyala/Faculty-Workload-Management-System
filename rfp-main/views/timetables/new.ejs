@@ -1,0 +1,114 @@
+<% layout("/layouts/boilerplate")-%>
+
+<body>
+  <form action="/teachers/<%= teacher._id %>" method="POST">
+    <table>
+      <tr>
+        <th>timetable</th>
+        <th>1</th>
+        <th>2</th>
+        <th>3</th>
+        <th>4</th>
+        <th>5</th>
+        <th>6</th>
+        <th>7</th>
+      </tr>
+      <tr>
+        <td>
+          <p>Monday</p>
+        </td>
+        <% for(let i=0; i < 7; i++){ %>
+        <td>
+          <select name="timetable[Monday][<%= i %>]" id="Monday_<%= i %>">
+            <option value="">Select subject</option>
+            <% for(let subject of subjects){ %>
+            <option value="<%= subject._id %>"><%= subject.subcode %></option>
+            <% } %>
+          </select>
+        </td>
+        <% } %>
+      </tr>
+
+      <tr>
+        <td>
+          <p>Tuesday</p>
+        </td>
+        <% for(let i=0; i < 7; i++){ %>
+        <td>
+          <select name="timetable[Tuesday][<%= i %>]" id="Tuesday_<%= i %>">
+            <option value="">Select subject</option>
+            <% for(let subject of subjects){ %>
+            <option value="<%= subject._id %>"><%= subject.subcode %></option>
+            <% } %>
+          </select>
+        </td>
+        <% } %>
+      </tr>
+
+      <tr>
+        <td>
+          <p>Wednesday</p>
+        </td>
+        <% for(let i=0; i < 7; i++){ %>
+        <td>
+          <select name="timetable[Wednesday][<%= i %>]" id="Wednesday_<%= i %>">
+            <option value="">Select subject</option>
+            <% for(let subject of subjects){ %>
+            <option value="<%= subject._id %>"><%= subject.subcode %></option>
+            <% } %>
+          </select>
+        </td>
+        <% } %>
+      </tr>
+
+      <tr>
+        <td>
+          <p>Thursday</p>
+        </td>
+        <% for(let i=0; i < 7; i++){ %>
+        <td>
+          <select name="timetable[Thursday][<%= i %>]" id="Thursday_<%= i %>">
+            <option value="">Select subject</option>
+            <% for(let subject of subjects){ %>
+            <option value="<%= subject._id %>"><%= subject.subcode %></option>
+            <% } %>
+          </select>
+        </td>
+        <% } %>
+      </tr>
+
+      <tr>
+        <td>
+          <p>Friday</p>
+        </td>
+        <% for(let i=0; i < 7; i++){ %>
+        <td>
+          <select name="timetable[Friday][<%= i %>]" id="Friday_<%= i %>">
+            <option value="">Select subject</option>
+            <% for(let subject of subjects){ %>
+            <option value="<%= subject._id %>"><%= subject.subcode %></option>
+            <% } %>
+          </select>
+        </td>
+        <% } %>
+      </tr>
+
+      <tr>
+        <td>
+          <p>Saturday</p>
+        </td>
+        <% for(let i=0; i < 7; i++){ %>
+        <td>
+          <select name="timetable[Saturday][<%= i %>]" id="Saturday_<%= i %>">
+            <option value="">Select subject</option>
+            <% for(let subject of subjects){ %>
+            <option value="<%= subject._id %>"><%= subject.subcode %></option>
+            <% } %>
+          </select>
+        </td>
+        <% } %>
+      </tr>
+    </table>
+    <button>save</button>
+  </form>
+</body>

@@ -1,0 +1,23 @@
+<% layout("/layouts/boilerplate")-%>
+
+<body>
+  <%if(currUserStatus.role == 'admin'){%>
+  <form action="/departments/new" method="get">
+    <button type="submit">Add new department</button>
+  </form>
+  <%}%>
+  <p>All Departments:</p>
+  <hr />
+  <% for(let department of departmentList){ %>
+  <p><%= department.deptname %></p>
+  <form action="/departments/<%= department._id %>" method="get">
+    <button>show details</button>
+  </form>
+  <%if(currUserStatus.role == 'admin'){%>
+  <form action="/departments/<%= department._id %>/announcements" method="get">
+    <button type="submit">Show Announcements</button>
+  </form>
+  <%}%>
+  <hr />
+  <% } %>
+</body>

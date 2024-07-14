@@ -1,0 +1,100 @@
+<% layout("/layouts/boilerplate")-%>
+
+<body>
+  <div>
+    <p>Teacher's Name: <%= teacher.name %></p>
+    <p>Faculty ID: <%= teacher.fid %></p>
+    <p>Department: <%= department.deptname %></p>
+    <p>Email: <%= teacher.email %></p>
+    <p>Subject 1: <%= teacher.sub1.subcode %></p>
+    <p>Subject 2: <%= teacher.sub2.subcode %></p>
+    <p>Qualifications: <%= teacher.qualifications%></p>
+    <p>timetable:</p>
+
+    <% if(user.role == 'admin'){ %>
+    <form
+      action="/teachers/<%= teacher._id %>/timetables/<%= timetable._id %>/edit"
+      method="get"
+    >
+      <button>edit timetable</button>
+    </form>
+
+    <form action="/teachers/<%= teacher._id %>/edit" method="get">
+      <button>edit faculty information</button>
+    </form>
+
+    <% } %>
+    <table>
+      <tr>
+        <th>Timetable</th>
+        <th>1</th>
+        <th>2</th>
+        <th>3</th>
+        <th>4</th>
+        <th>5</th>
+        <th>6</th>
+        <th>7</th>
+      </tr>
+      <tr>
+        <td>
+          <h6>Monday</h6>
+        </td>
+        <% for(let period of timetable.Monday){ %>
+        <td>
+          <p><%= period.subcode %></p>
+        </td>
+        <% } %>
+      </tr>
+      <tr>
+        <td>
+          <h6>Tuesday</h6>
+        </td>
+        <% for(let period of timetable.Tuesday){ %>
+        <td>
+          <p><%= period.subcode %></p>
+        </td>
+        <% } %>
+      </tr>
+      <tr>
+        <td>
+          <h6>Wednesday</h6>
+        </td>
+        <% for(let period of timetable.Wednesday){ %>
+        <td>
+          <p><%= period.subcode %></p>
+        </td>
+        <% } %>
+      </tr>
+      <tr>
+        <td>
+          <h6>Thursday</h6>
+        </td>
+        <% for(let period of timetable.Thursday){ %>
+        <td>
+          <p><%= period.subcode %></p>
+        </td>
+        <% } %>
+      </tr>
+      <tr>
+        <td>
+          <h6>Friday</h6>
+        </td>
+        <% for(let period of timetable.Friday){ %>
+        <td>
+          <p><%= period.subcode %></p>
+        </td>
+        <% } %>
+      </tr>
+      <tr>
+        <td>
+          <h6>Saturday</h6>
+        </td>
+        <% for(let period of timetable.Saturday){ %>
+        <td>
+          <p><%= period.subcode %></p>
+        </td>
+        <% } %>
+      </tr>
+    </table>
+  </div>
+</body>

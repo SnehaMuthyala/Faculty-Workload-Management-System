@@ -1,0 +1,5 @@
+<select name="department[hod]" id="">
+      <% for (let teacher of teachers) { %>
+      <option value="<%= teacher._id %>"><%=teacher.name%></option>
+      <% } %>
+    </select>

@@ -1,0 +1,86 @@
+<% layout("/layouts/boilerplate")-%>
+
+<body>
+  <% for (timetable of timetableList){ %>
+  <form action="/timetables/<%= timetable._id %>/edit" method="get">
+    <button>edit</button>
+  </form>
+
+  <form action="/timetables/new" method="get">
+    <button>new</button>
+  </form>
+
+  <table>
+    <tr>
+      <th>timetable</th>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+      <th>4</th>
+      <th>5</th>
+      <th>6</th>
+      <th>7</th>
+    </tr>
+    <tr>
+      <td>
+        <p>Monday</p>
+      </td>
+      <% for(let period of timetable.Monday){ %>
+      <td>
+        <p><%= period.subcode %></p>
+      </td>
+      <% } %>
+    </tr>
+    <tr>
+      <td>
+        <p>Tuesday</p>
+      </td>
+      <% for(let period of timetable.Tuesday){ %>
+      <td>
+        <p><%= period.subcode %></p>
+      </td>
+      <% } %>
+    </tr>
+    <tr>
+      <td>
+        <p>Wednesday</p>
+      </td>
+      <% for(let period of timetable.Wednesday){ %>
+      <td>
+        <p><%= period.subcode %></p>
+      </td>
+      <% } %>
+    </tr>
+    <tr>
+      <td>
+        <p>Thursday</p>
+      </td>
+      <% for(let period of timetable.Thursday){ %>
+      <td>
+        <p><%= period.subcode %></p>
+      </td>
+      <% } %>
+    </tr>
+    <tr>
+      <td>
+        <p>Friday</p>
+      </td>
+      <% for(let period of timetable.Friday){ %>
+      <td>
+        <p><%= period.subcode %></p>
+      </td>
+      <% } %>
+    </tr>
+    <tr>
+      <td>
+        <p>Saturday</p>
+      </td>
+      <% for(let period of timetable.Saturday){ %>
+      <td>
+        <p><%= period.subcode %></p>
+      </td>
+      <% } %>
+    </tr>
+  </table>
+  <% } %>
+</body>

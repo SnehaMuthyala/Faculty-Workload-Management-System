@@ -1,0 +1,61 @@
+<% layout("/layouts/boilerplate")-%>
+<body>
+  <form action="/teachers/<%= teacher._id %>/?_method=PUT" method="POST">
+    <label for="">Faculty Name</label>
+    <input type="text" name="teacher[name]" id="" value="<%= teacher.name %>" />
+    <br /><br />
+    <label>Faculty ID:</label>
+    <input type="text" name="teacher[fid]" value="<%= teacher.fid %>" id="" />
+    <br /><br />
+    <label>Department:</label>
+    <select name="teacher[department]" id="">
+      <% let olddept = teacher.department.deptcode; %> <% for (let dept of
+      departments) { %> <% if (dept.deptcode===olddept) { %>
+      <option value="<%= dept._id %>" selected><%= dept.deptcode %></option>
+      <% } else { %>
+      <option value="<%= dept._id %>"><%= dept.deptcode %></option>
+      <% } %> <% } %>
+    </select>
+
+    <br /><br />
+    <label>Email:</label>
+    <input
+      type="text"
+      name="teacher[email]"
+      value="<%= teacher.email %>"
+      id="" />
+    <br /><br />
+    <label>Subject 1:</label>
+    <select name="teacher[sub1]" id="">
+      <% let oldsub=teacher.sub1.subcode; %> <% for (let subject of subjects) {
+      %> <% if (subject.subcode===oldsub) { %>
+      <option value="<%= subject._id %>" selected>
+        <%= subject.subcode %>
+      </option>
+      <% } else { %>
+      <option value="<%= subject._id %>"><%= subject.subcode %></option>
+      <% } %> <% } %>
+    </select>
+    <br /><br />
+    <label>Subject 2:</label>
+    <select name="teacher[sub2]" id="">
+      <% oldsub=teacher.sub2.subcode; %> <% for (let subject of subjects) { %>
+      <% if (subject.subcode===oldsub) { %>
+      <option value="<%= subject._id %>" selected>
+        <%= subject.subcode %>
+      </option>
+      <% } else { %>
+      <option value="<%= subject._id %>"><%= subject.subcode %></option>
+      <% } %> <% } %>
+    </select>
+    <br /><br />
+    <label>Qualifications:</label>
+    <input
+      type="text"
+      name="teacher[qualifications]"
+      value="<%= teacher.qualifications %>"
+      id="" />
+    <br /><br />
+    <button>update & save</button>
+  </form>
+</body>

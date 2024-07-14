@@ -1,0 +1,20 @@
+<% layout("/layouts/boilerplate")-%>
+
+<body>
+  <h1>All subjects:</h1>
+  <% if(currUserStatus.role == 'admin') {%>
+  <form action="/subjects/new" method="GET">
+    <button>Add new</button>
+  </form>
+  <% } %> <% for(let subject of subjectList){ %>
+  <p>Subject Name: <%= subject.subname %></p>
+  <p>Subject Code: <%= subject.subcode %></p>
+  <p>Subject Type: <%= subject.subtype %></p>
+  <% if(currUserStatus.role == 'admin'){ %>
+  <form action="/subjects/<%= subject._id %>/edit" method="get">
+    <button>edit</button>
+  </form>
+  <% } %>
+  <hr />
+  <% } %>
+</body>

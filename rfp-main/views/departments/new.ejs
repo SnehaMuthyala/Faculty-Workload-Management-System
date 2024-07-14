@@ -1,0 +1,13 @@
+<% layout("/layouts/boilerplate")-%>
+<body>
+  <h1>Create New Department</h1>
+  <form action="/departments" method="POST">
+    <label for="deptname">Department Name</label>
+    <input type="text" name="department[deptname]" id="deptname" required />
+    <br />
+    <label for="deptcode">Department Code</label>
+    <input type="text" name="department[deptcode]" id="deptcode" required />
+    <br />
+    <button type="submit">Add Department</button>
+  </form>
+</body>
